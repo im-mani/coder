@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manicart - Headphones Store</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            color: #1e293b;
+        }
+
+        /* Top Announcement Bar */
+        .top-bar {
+            background-color: #0284c7;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 50px;
+            font-size: 13px;
+        }
+
+        .top-bar-left, .top-bar-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .top-bar a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Main Navbar */
+        .navbar {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #0b3c29;
+        }
+
+        .logo i {
+            color: #27ae60;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #444;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #0b3c29;
+        }
+
+        .search-bar {
+            position: relative;
+            width: 280px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 8px 15px 8px 35px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            background-color: #f1f1f1;
+            outline: none;
+            font-size: 13px;
+        }
+
+        .search-bar i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+            font-size: 13px;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            align-items: center;
+        }
+
+        .nav-actions a {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Hero Banner Section */
+        .main-container {
+            max-width: 1200px;
+            margin: 25px auto;
+            padding: 0 20px;
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, #f8f3ed, #f4eee7);
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 60px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .hero-content {
+            max-width: 500px;
+        }
+
+        .hero-content h1 {
+            font-size: 36px;
+            color: #0b3c29;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .btn-buy {
+            background-color: #2563eb;
+            color: #ffffff;
+            padding: 10px 25px;
+            border-radius: 20px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-buy:hover {
+            background-color: #125c40;
+        }
+
+        .hero-image img {
+            width: 280px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Filters Section */
+        .filters-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 30px 0 20px 0;
+            background: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #444;
+        }
+
+        .filter-btn:hover {
+            background: #f1f1f1;
+        }
+
+        /* Products Section */
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 20px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .wishlist-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #fff;
+            border: 1px solid #eee;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #777;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .wishlist-icon:hover {
+            color: #e74c3c;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            margin-bottom: 15px;
+            background-color: #fbfbfb;
+            border-radius: 6px;
+            padding: 10px;
+        }
+
+        .product-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .product-desc {
+            font-size: 11px;
+            color: #777;
+            margin-bottom: 8px;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11px;
+            color: #27ae60;
+            margin-bottom: 12px;
+        }
+
+        .product-rating span {
+            color: #888;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-price {
+            font-size: 16px;
+            font-weight: 700;
+            color: #111;
+        }
+
+        .btn-add-cart {
+            background: #fff;
+            color: #0b3c29;
+            border: 1px solid #0b3c29;
+            padding: 6px 14px;
+            border-radius: 18px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-add-cart:hover {
+            background: #0b3c29;
+            color: #fff;
+        }
+
+        /* Footer Credit Section */
+        footer {
+            background-color: #0b3c29;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+
+        footer .credit {
+            font-style: italic;
+            opacity: 0.9;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .top-bar, .navbar {
+                padding: 10px 20px;
+            }
+            .hero-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+            .hero-image {
+                margin-top: 20px;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Announcement Bar -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <span><i class="fa-solid fa-phone"></i> +91887473....</span>
+        </div>
+        <div>Get 50% Off On Selected Items | <a href="#">Shop Now</a></div>
+        <div class="top-bar-right">
+            <span>Eng <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></span>
+            <span>Location <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></span>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-basket-shopping"></i> Manicart
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Categories <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a></li>
+            <li><a href="#">Deals</a></li>
+            <li><a href="#">What's New</a></li>
+            <li><a href="#">Delivery</a></li>
+        </ul>
+        <div class="search-bar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search Product">
+        </div>
+        <div class="nav-actions">
+            <a href="#"><i class="fa-regular fa-user"></i> Account</a>
+            <a href="#"><i class="fa-solid fa-cart-shopping"></i> Cart</a>
+        </div>
+    </header>
+
+    <!-- Content Wrapper -->
+    <div class="main-container">
+
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <div class="hero-content">
+                <h1>Grab Upto 50% Off On Selected Headphone</h1>
+                <button class="btn-buy" onclick="alert('Redirecting to shopping collection...')">Buy Now</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&auto=format&fit=crop&q=80" alt="Headphone Model">
+            </div>
+        </div>
+
+        <!-- Filters Section -->
+        <div class="filters-section">
+            <div class="filter-buttons">
+                <button class="filter-btn">Headphone Type <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></button>
+                <button class="filter-btn">Price <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></button>
+                <button class="filter-btn">Review <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></button>
+                <button class="filter-btn">Color <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></button>
+                <button class="filter-btn">Material <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></button>
+                <button class="filter-btn">Offer <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></button>
+                <button class="filter-btn"><i class="fa-solid fa-sliders"></i> All Filters</button>
+            </div>
+            <div>
+                <button class="filter-btn">Sort by <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></button>
+            </div>
+        </div>
+
+        <!-- Products Section -->
+        <div class="section-title">Headphones For You!</div>
+
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="wishlist-icon" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=300&auto=format&fit=crop&q=80" alt="Wireless Earbuds" class="product-image">
+                <div class="product-title">Wireless Earbuds, IPX8</div>
+                <div class="product-desc">Organic Cotton, Fairtrade certified</div>
+                <div class="product-rating">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span>(21)</span>
+                </div>
+                <div class="product-footer">
+                    <div class="product-price">$199.00</div>
+                    <button class="btn-add-cart" onclick="addToCart('Wireless Earbuds, IPX8')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="wishlist-icon" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=300&auto=format&fit=crop&q=80" alt="AirPods Max" class="product-image">
+                <div class="product-title">AirPods Max</div>
+                <div class="product-desc">A perfect balance of high-fidelity audio</div>
+                <div class="product-rating">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span>(41)</span>
+                </div>
+                <div class="product-footer">
+                    <div class="product-price">$559.00</div>
+                    <button class="btn-add-cart" onclick="addToCart('AirPods Max')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="wishlist-icon" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?w=300&auto=format&fit=crop&q=80" alt="Bose BT Earphones" class="product-image">
+                <div class="product-title">Bose BT Earphones</div>
+                <div class="product-desc">Table with air purifier, stained venner/black</div>
+                <div class="product-rating">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span>(12)</span>
+                </div>
+                <div class="product-footer">
+                    <div class="product-price">$1999.00</div>
+                    <button class="btn-add-cart" onclick="addToCart('Bose BT Earphones')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="wishlist-icon" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></div>
+                <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=300&auto=format&fit=crop&q=80" alt="VIVEFOX Headphones" class="product-image">
+                <div class="product-title">VIVEFOX Headphones</div>
+                <div class="product-desc">Wired Stereo Headsets With Mic</div>
+                <div class="product-rating">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span>(53)</span>
+                </div>
+                <div class="product-footer">
+                    <div class="product-price">$399.00</div>
+                    <button class="btn-add-cart" onclick="addToCart('VIVEFOX Headphones')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Manicart. All rights reserved.</p>
+        <p class="credit" style="margin-top: 5px;">Design by Mani</p>
+    </footer>
+
+    <!-- JavaScript Interactive Functionality -->
+    <script>
+        // Wishlist Toggle Function
+        function toggleWishlist(element) {
+            let icon = element.querySelector('i');
+            if (icon.classList.contains('fa-regular')) {
+                icon.classList.remove('fa-regular');
+                icon.classList.add('fa-solid');
+                icon.style.color = '#e74c3c';
+            } else {
+                icon.classList.remove('fa-solid');
+                icon.classList.add('fa-regular');
+                icon.style.color = '#777';
+            }
+        }
+
+        // Add to Cart Alert Function
+        function addToCart(productName) {
+            alert(productName + " has been added to your cart successfully!");
+        }
+    </script>
+</body>
+</html>
