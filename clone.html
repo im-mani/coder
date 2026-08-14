@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #120c0e;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 86%;
+            min-height: 750px;
+            background: #3d111a;
+            border-radius: 12px;
+            color: white;
+            overflow: hidden;
+        }
+
+        nav {
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 70px;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 38px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f5a623;
+        }
+
+        .home {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px 70px;
+        }
+
+        .content {
+            width: 50%;
+        }
+
+        .content h3 {
+            color: #f5a623;
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .content h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        .content p {
+            font-size: 17px;
+            line-height: 1.6;
+            color: #eee;
+            max-width: 550px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        button {
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .order {
+            background: #f5a623;
+            border: 2px solid #f5a623;
+            color: #3d111a;
+        }
+
+        .contact {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+        }
+
+        .coffee-image {
+            width: 45%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .coffee-image img {
+            width: 100%;
+            max-width: 550px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                padding: 0 30px;
+            }
+
+            nav ul {
+                gap: 18px;
+            }
+
+            .home {
+                padding: 40px 30px;
+            }
+
+            .content h1 {
+                font-size: 38px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            body {
+                align-items: flex-start;
+                padding-top: 20px;
+            }
+
+            .container {
+                width: 95%;
+            }
+
+            nav {
+                height: auto;
+                padding: 25px;
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .home {
+                flex-direction: column;
+                text-align: center;
+                padding: 50px 25px;
+            }
+
+            .content {
+                width: 100%;
+            }
+
+            .content h1 {
+                font-size: 35px;
+            }
+
+            .content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .coffee-image {
+                width: 100%;
+                margin-top: 40px;
+            }
+        }
+        .rating{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .rating span{
+            color:#d4a373;
+            font-size: 25px;
+            letter-spacing: 3px;
+        }
+        .rating strong{
+            color:white;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <nav>
+            <div class="logo">☕ Coffee</div>
+
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Testimonials</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+        <section class="home">
+
+            <div class="content">
+                <h3>Best Coffee</h3>
+
+                <h1>Make your day great with our special coffee!</h1>
+
+                <p>
+                    Welcome to our coffee paradise where every bean tells
+                    a story and every cup sparks joy.
+                </p>
+
+                <div class="buttons">
+                    <button class="order" onclick="orderCoffee()">Order Now</button>
+                    <button class="contact" onclick="contactUs()">Contact Us</button>
+                </div>
+            </div>
+
+            <div class="coffee-image">
+                <img src="coffee.png" alt="Coffee">
+            </div>
+
+        </section>
+        <div class="rating">
+         <span>★★★★★</span>
+         <strong>4.9/5</strong>
+
+
+        </div>
+
+    </div>
+
+    <script>
+        function orderCoffee() {
+            alert("Thank you! Your coffee order has been started ☕");
+        }
+
+        function contactUs() {
+            alert("Thanks for contacting us! We will get back to you.");
+        }
+    </script>
+
+</body>
+</html>
