@@ -11,10 +11,10 @@ CREATE TABLE employees (
 );
 
 INSERT INTO employees VALUES
-(1, 'Rahul', 24, 'Delhi', 'IT', 35000),
+(1, 'Rishabh', 24, 'Delhi', 'IT', 35000),
 (2, 'Priya', 26, 'Mumbai', 'HR', 42000),
 (3, 'Aman', 23, 'Lucknow', 'Sales', 30000),
-(4, 'Neha', 25, 'Delhi', 'IT', 45000),
+(4, 'Sunny', 25, 'Delhi', 'IT', 45000),
 (5, 'Rohit', 28, 'Jaipur', 'Finance', 50000),
 (6, 'Anjali', 24, 'Kanpur', 'HR', 38000),
 (7, 'Vikas', 27, 'Prayagraj', 'Sales', 36000),
