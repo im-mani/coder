@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BharatCart - Headphones Store</title>
-    <!-- FontAwesome for Icons -->
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -19,7 +19,7 @@
             color: #1e293b;
         }
 
-        /* Top Announcement Bar */
+        
         .top-bar {
             background-color: #0284c7;
             color: #ffffff;
@@ -42,7 +42,7 @@
             font-weight: 500;
         }
 
-        /* Main Navbar */
+        
         .navbar {
             background-color: #ffffff;
             display: flex;
@@ -126,7 +126,7 @@
             gap: 6px;
         }
 
-        /* Hero Banner Section */
+        
         .main-container {
             max-width: 1200px;
             margin: 25px auto;
@@ -178,7 +178,7 @@
             border-radius: 10px;
         }
 
-        /* Filters Section */
+        
         .filters-section {
             display: flex;
             justify-content: space-between;
@@ -215,7 +215,7 @@
             background: #f1f1f1;
         }
 
-        /* Products Section */
+        
         .section-title {
             font-size: 20px;
             font-weight: 700;
@@ -329,7 +329,7 @@
             color: #fff;
         }
 
-        /* Footer Credit Section */
+        
         footer {
             background-color: #0b3c29;
             color: #fff;
@@ -345,7 +345,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Responsive */
+    
         @media (max-width: 768px) {
             .top-bar, .navbar {
                 padding: 10px 20px;
@@ -399,10 +399,10 @@
         </div>
     </header>
 
-    <!-- Content Wrapper -->
+    
     <div class="main-container">
 
-        <!-- Hero Banner -->
+        
         <div class="hero-banner">
             <div class="hero-content">
                 <h1>Grab Upto 50% Off On Selected Headphone</h1>
@@ -413,7 +413,7 @@
             </div>
         </div>
 
-        <!-- Filters Section -->
+        
         <div class="filters-section">
             <div class="filter-buttons">
                 <button class="filter-btn">Headphone Type <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></button>
@@ -429,11 +429,11 @@
             </div>
         </div>
 
-        <!-- Products Section -->
+        
         <div class="section-title">Wireless Headphones!</div>
 
         <div class="products-grid">
-            <!-- Product 1 -->
+            
             <div class="product-card">
                 <div class="wishlist-icon" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></div>
                 <img src="boat.jpeg" class="product-image">
@@ -448,7 +448,7 @@
                 </div>
             </div>
 
-            <!-- Product 2 -->
+            
             <div class="product-card">
                 <div class="wishlist-icon" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></div>
                 <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=300&auto=format&fit=crop&q=80" alt="AirPods Max" class="product-image">
@@ -463,7 +463,7 @@
                 </div>
             </div>
 
-            <!-- Product 3 -->
+            
             <div class="product-card">
                 <div class="wishlist-icon" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></div>
                 <img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?w=300&auto=format&fit=crop&q=80" alt="Bose BT Earphones" class="product-image">
@@ -478,7 +478,7 @@
                 </div>
             </div>
 
-            <!-- Product 4 -->
+            
             <div class="product-card">
                 <div class="wishlist-icon" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></div>
                 <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=300&auto=format&fit=crop&q=80" alt="VIVEFOX Headphones" class="product-image">
@@ -496,15 +496,15 @@
 
     </div>
 
-    <!-- Footer -->
+    
     <footer>
         <p>&copy; 2026 BharatCart. All rights reserved.</p>
         <p class="credit" style="margin-top: 5px;">Design by Mani</p>
     </footer>
 
-    <!-- JavaScript Interactive Functionality -->
+    
     <script>
-        // Wishlist Toggle Function
+        
         function toggleWishlist(element) {
             let icon = element.querySelector('i');
             if (icon.classList.contains('fa-regular')) {
@@ -518,7 +518,7 @@
             }
         }
 
-        // Add to Cart Alert Function
+        
         function addToCart(productName) {
             alert(productName + " has been added to your cart successfully!");
         }
