@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>food rush website</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #1a1a1a;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+p { color: #767676; }
+
+button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  background-color: #f5820d;
+  color: #ffffff;
+  padding: 12px 26px;
+}
+
+img {
+  background-color: #fce3c6;
+  color: transparent;
+  font-size: 0;
+  border-radius: 15px;
+  display: block;
+  max-width: 100%;
+}
+
+.logo {
+  position: absolute;
+  top: 22px;
+  left: 30px;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+  padding: 20px 30px;
+  position: relative;
+}
+
+.nav-link {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.nav-link:first-child {
+  color: #f5820d;
+}
+
+.god {
+  padding: 10px 24px;
+  font-size: 14px;
+  background-color: #1a1a1a;
+}
+
+.hero {
+  background-color: #fdf1e4;
+  border-radius: 20px;
+  margin: 10px 20px;
+  padding: 50px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-title {
+  font-size: 38px;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.hero-text {
+  grid-column: 1;
+  grid-row: 2;
+  max-width: 40ch;
+  margin: 15px 0;
+}
+
+.hero > button {
+  grid-column: 1;
+  grid-row: 3;
+  justify-self: start;
+}
+
+.hero-image {
+  grid-column: 2;
+  grid-row: 1 / 4;
+  justify-self: center;
+  border-radius: 50%;
+}
+
+@media (max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-title, .hero-text, .hero > button, .hero-image {
+    grid-column: 1;
+  }
+  .hero-title { grid-row: 1; }
+  .hero-text { grid-row: 2; margin-inline: auto; }
+  .hero > button { grid-row: 3; justify-self: center; }
+  .hero-image { grid-row: 4; margin-top: 20px; }
+}
+
+.section-title {
+  text-align: center;
+  font-size: 26px;
+  flex-basis: 100%;
+  margin-bottom: 30px;
+}
+
+.popular-food {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 60px 30px;
+}
+
+.mani {
+  flex: 1 1 250px;
+  text-align: center;
+}
+
+.food-image {
+  width: 100%;
+  height: 140px;
+  margin-bottom: 12px;
+}
+
+.mani h3 { margin-bottom: 6px; }
+.mani p { font-size: 14px; margin-bottom: 10px; }
+.mani span {
+  display: block;
+  font-weight: 700;
+  color: #f5820d;
+  margin-bottom: 10px;
+}
+
+.order-btn {
+  padding: 8px 18px;
+  font-size: 13px;
+}
+
+.offers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 60px 30px;
+  background-color: #1a1a1a;
+}
+
+.offers .section-title { color: #ffffff; }
+
+.sunny, .raj {
+  flex: 1 1 250px;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+}
+
+.sunny { background-color: #fdf3d8; }
+.raj { background-color: #fbe2e7; }
+
+.offer-image {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+}
+
+.sunny p, .raj p { margin-bottom: 12px; }
+
+.sunny button, .raj button {
+  padding: 8px 18px;
+  font-size: 13px;
+}
+
+.why-choose {
+  background-color: #fdf1e4;
+  padding: 60px 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  text-align: center;
+}
+
+.feature-card {
+  flex: 1 1 220px;
+  max-width: 250px;
+}
+
+.feature-card h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.feature-image {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+}
+
+.feature-card h3 { margin-bottom: 4px; }
+.feature-card p { font-size: 14px; }
+
+.footer {
+  background-color: #1a1a1a;
+  color: #cfcfcf;
+  padding: 50px 30px 20px;
+  text-align: center;
+}
+
+.footer h3 {
+  color: #ffffff;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.footer h3:first-child { margin-top: 0; }
+
+.footer > p { margin-bottom: 6px; }
+
+.quick-link {
+  margin: 25px 0;
+}
+
+.quick-link h2 {
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.quick-link ul li {
+  margin-bottom: 8px;
+}
+
+.quick-link ul li a {
+  color: #0cf050;
+}
+
+.footer span {
+  display: inline-block;
+  font-size: 20px;
+  letter-spacing: 12px;
+  margin-top: 8px;
+}
+
+</style>
+ 
+</head>
+<body>
+<h1 class="logo">🍕FoodRush</h1>
+<nav class="navbar">
+<a href="#"class="nav-link">Home</a>
+<a href="#"class="nav-link">Menu</a>
+<a href="#"class="nav-link">Offers</a>
+<a href="#"class="nav-link">Contact</a>
+<button class="god" id="cartBtn">Cart (<span id="cartCount">0</span>)</button>
+</nav>
+<section class="hero">
+<h1 class="hero-title">Delicious Food,<br>Fast Delivery</h1>
+<p class="hero-text">Craving something tasty? we deliver your <br>favorite food hot and fresh to your doorstep</p>
+<button>Order Now →</button>
+<img class="hero-image" width="240px"src="snack.jpeg">
+</section>
+<section class="popular-food">
+<h3 class="section-title"> Food <br>★࿐࿔</h3>
+<div class="mani">
+<img class="food-image" src="pza.jpeg">
+<h3>Cheese Pizza</h3>
+<p>Delicious cheese pizza with<br>fresh veggies and herbs</p>
+<span>₹199</span>
+<button class="order-btn" data-food="Cheese Pizza">Order Now</button>
+</div>
+<div class="mani">
+<img src="chicken.jpeg">
+<h3>Chicken Burger</h3>
+<p>Crispy chicken burger with <br>lettuce and special sauce</p>
+<span>₹249</span>
+<button class="order-btn" data-food="Chicken Burger">Order Now</button>
+</div>
+<div class="mani">
+<img src="sause.jpeg">
+<h3>White Sause Pasta</h3>
+<p>Cremy white sauce pasta<br>with veggies</p>
+<span>₹189</span>
+<button class="order-btn" data-food="White Sauce Pasta">Order Now</button>
+</div>
+</section>
+<section class="offers">
+<h2 class="section-title">Special offers</h2>
+<div class="sunny">
+<img class="offer-image"src="combo.jpeg">
+<h3>20% OFF</h3>
+<P>On All orders Above ₹299 </P>
+<button>Order Now</button>
+</div>
+<div class="raj">
+<img class="offer-image"src="gift.jpeg">
+<h2>Buy 1 Get 1</h2>
+<p>on selected items</p>
+<button>order Now</button>
+</div>
+</section>
+<section class="why-choose">
+<div class="feature-card">
+<h2>why choose FoodRush</h2>
+<img class="feature-image" src="free.jpeg">
+<h3>Fast Delivery</h3>
+<p>We deliver your food<br>fast at your door step</p>
+</div>
+<div class="feature-card">
+<img class="feature-image" src="fruit.jpeg">
+<h3>Fresh Food</h3>
+<p>we use fresh ingredients<br>for healthy food</p>
+</div>
+<div class="feature-card">
+<img class="feature-image" src="order.jpeg">
+<h3>Easy Ordering</h3>
+<p>order your favorite food<br>in just a few clicks</p>
+</div>
+</section>
+<footer class="footer">
+<h3>FoodRush</h3>
+<p>we deliver your food<br>fast at your doorstep</p>
+<div class="quick-link">
+<h2>Quick Links</h2>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Menu</a></li>
+<li><a href="#">Offers</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</div>
+<H3>Contact Us</H3>
+<p>📞 +91 1234567890</p>
+<p>📩 support@foodrush.com</p>
+<p>📍 Delhi</p>
+<p>@ 2024 FoodRush All rights reserved</p>
+<h3>Follow Us</h3>
+<span>ⓕ 🅾 𝕏 ▶️</span>
+</footer>
+</ul>
+</nav>
+<script>
+let cartCount = 0;
+
+const buttons = document.querySelectorAll(".order-btn");
+const count = document.getElementById("cartCount");
+const cartButton = document.getElementById("cartBtn");
+
+buttons.forEach(function(button) {
+  button.addEventListener("click", function() {
+    cartCount = cartCount + 1;
+    count.textContent = cartCount;
+    alert(button.dataset.food + " added to cart!");
+  });
+});
+
+cartButton.addEventListener("click", function() {
+  alert("Your cart has " + cartCount + " item(s).");
+});
+</script>
+</body>
+</html>
