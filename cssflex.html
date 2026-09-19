@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>navbar design</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        background-color: white;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-box {
+    background-color: #ffb800;
+    color: #000000;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 6px 10px;
+    border-radius: 4px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.sub-text {
+    font-size: 10px;
+    color: #666666;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-links li a:hover {
+    color: #ffb800;
+}
+
+.arrow {
+    font-size: 10px;
+}
+
+.icon-link {
+    font-size: 16px;
+}
+    
+.hero{
+    text-align: center;
+    padding: 60px 40px;
+}
+.hero h1{
+    font-size: 40px;
+    font-weight: 400;
+}
+.hero h1 strong {
+    font-weight: 700;
+}
+.hero h1 img{
+    width: 100px;
+    vertical-align: middle;
+}
+.hero p{
+    margin-top: 20px;
+    line-height: 1.2;
+    margin: 26px;
+}
+.hero button{
+    background-color: darkcyan;
+    padding: 14px 25px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+}
+.edit h1{
+    text-align: center;
+    margin: 10px;
+    font-size: 30px;
+}
+.edit h1 small{
+    font-size: 20px;
+}
+.cards{
+    grid-template-columns: repeat(3,1fr);
+    display: grid;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px;
+    
+}
+.card{
+    background-color: #d3d3d3;
+    padding: 20px 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin: 20px;
+    text-align: center;
+    box-shadow: 2px 2px 8px #888;
+    
+}
+.blue{
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 8px ;
+    cursor: pointer;
+    margin: 5px;
+    
+}
+h3{
+    margin-bottom: 30px;
+}
+.grn{
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+
+}
+</style>
+</head>
+<body>
+    <nav class="navbar">
+    <div class="logo-container">
+        <div class="logo-box">UE</div>
+        <div class="logo-text">
+            <span class="brand-name">UltraEdit</span>
+            <span class="sub-text">An Idera Inc. Company</span>
+        </div>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#">Products <span class="arrow">⌄</span></a></li>
+        <li><a href="#">Pricing <span class="arrow">⌄</span></a></li>
+        <li><a href="#">Resources <span class="arrow">⌄</span></a></li>
+        <li><a href="#">About us <span class="arrow">⌄</span></a></li>
+        <li><a href="#" class="icon-link">🌐</a></li>
+    </ul>
+</nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+        <h1>Download <strong>UltraEdit</strong> For Windows <img src="g2.jpeg"  width="100"></h1>
+        <p>Download and try UltraEdit before you buy it! This download includes the full Windows<br>version of the editor</p>
+        <button>DOWNLOAD MAC OR LINUX VERSION</button>
+        </div>
+    </section>
+    <div class="edit">
+    <h1> <img width="30px"src="ue.jpeg"> Download UltraEdit<small>v2023.1(released 08/16/2023) | Hotfix</small></h1>
+    </div>
+    <div class="cards">
+    <div class="card">
+    <h3>English</h3>
+    <button class="blue">Download 32-bit</button>
+    <button class="grn">Download 64-bit</button>
+    </div>
+    <div class="card">
+        <h3>Deutsch</h3>
+        <button class="blue">Download 32-bit</button>
+        <button class="grn">Download 64-bit</button>
+    </div>
+    <div class="card">
+        <h3>Italiano</h3>
+        <button class="blue">Download 32-bit</button>
+        <button class="grn">Download 64-bit</button>
+    </div>
+    <div class="card">
+        <h3>Espanol</h3>
+        <button class="blue">Download 32-bit</button>
+        <button class="grn">Download 64-bit</button>
+    </div>
+    <div class="card">
+        <h3>francais</h3>
+        <button class="blue">Download 32-bit</button>
+        <button class="grn">Download 64-bit</button>
+    </div>
+    <div class="card">
+        <h3>Portugues brasileiro</h3>
+        <button class="blue">Download 32-bit</button>
+        <button class="grn">Download 64-bit</button>
+    </div>
+
+</body>
+</html>
